@@ -45,7 +45,7 @@ export class GiftRevealComponent implements OnInit, OnDestroy {
 
   revealGift(): void {
     this.isGiftVisible = true;
-    this.currentMessage = '💝 Chúc bạn luôn vui tươi, tràn đầy năng lượng và thành công trong cuộc sống! 💝';
+    this.currentMessage = '💝 Chúc bạn Njn xinh đẹp luôn vui tươi, tràn đầy năng lượng và thành công trong cuộc sống! 💝';
     this.createCenterFlower();
   }
 

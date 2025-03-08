@@ -15,22 +15,22 @@ export class GiftService {
   private gifts: Gift[] = [
     {
       type: 'flower',
-      message: '🌹 Chúc bạn luôn xinh đẹp, rạng ngời và hạnh phúc!',
+      message: '🌹 Chúc bạn Njn xinh đẹp luôn xinh đẹp, rạng ngời và hạnh phúc!',
       create: (container: HTMLElement) => this.createFlowerAnimation(container)
     },
     {
       type: 'heart',
-      message: '💖 Chúc bạn luôn vui tươi, tràn đầy năng lượng và thành công trong cuộc sống!',
+      message: '💖 Chúc bạn Njn xinh đẹp luôn vui tươi, tràn đầy năng lượng và thành công trong cuộc sống!',
       create: (container: HTMLElement) => this.createHeartAnimation(container)
     },
     {
       type: 'fireworks',
-      message: '🎆 Chúc mừng ngày Quốc tế Phụ nữ 8/3! Chúc bạn luôn mạnh mẽ và tự tin!',
+      message: '🎆 Chúc mừng ngày Quốc tế Phụ nữ 8/3! Chúc bạn Njn xinh đẹp luôn mạnh mẽ và tự tin!',
       create: () => this.createFireworksAnimation()
     },
     {
       type: 'message',
-      message: '✨ Cảm ơn vì đã là người phụ nữ tuyệt vời! Chúc bạn một ngày 8/3 thật ý nghĩa! ✨',
+      message: '✨ Cảm ơn vì đã là người phụ nữ tuyệt vời! Chúc bạn Njn xinh đẹp một ngày 8/3 thật ý nghĩa! ✨',
       create: (container: HTMLElement) => this.createMessageAnimation(container)
     }
   ];
@@ -112,9 +112,33 @@ export class GiftService {
   private createHeartAnimation(container: HTMLElement) {
     const heart = document.createElement('div');
     heart.className = 'heart';
+    heart.style.cssText = `
+      font-size: 150px;
+      color: #ff1493;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      animation: heartBeat 1.5s infinite;
+    `;
     heart.innerHTML = '❤️';
-    heart.style.fontSize = '80px';
     container.appendChild(heart);
+
+    // Add style for heart animation if not already present
+    if (!document.querySelector('#heartAnimation')) {
+      const style = document.createElement('style');
+      style.id = 'heartAnimation';
+      style.textContent = `
+        @keyframes heartBeat {
+          0% { transform: translate(-50%, -50%) scale(1); }
+          25% { transform: translate(-50%, -50%) scale(1.2); }
+          50% { transform: translate(-50%, -50%) scale(1); }
+          75% { transform: translate(-50%, -50%) scale(1.2); }
+          100% { transform: translate(-50%, -50%) scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
   }
 
   private createFireworksAnimation() {

@@ -1,0 +1,36 @@
+{
+  "name": "gift-wmd",
+  "version": "1.0.0",
+  "description": "A beautiful Women's Day Surprise web application with animations and interactive features",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server src -p 9999",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinhvu1290/gift-wmd.git"
+  },
+  "keywords": [
+    "women's day",
+    "animation",
+    "interactive",
+    "celebration"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dinhvu1290/gift-wmd/issues"
+  },
+  "homepage": "https://github.com/dinhvu1290/gift-wmd#readme",
+  "dependencies": {
+    "@angular/cli": "^13.3.11",
+    "@angular/core": "^19.2.1",
+    "canvas-confetti": "^1.9.3",
+    "gsap": "^3.12.7",
+    "zone.js": "^0.15.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

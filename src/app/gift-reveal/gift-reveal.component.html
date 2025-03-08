@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="background-animation">
+    <!-- Falling Flowers -->
+    <div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" class="flower-fall-{{i}}">
+      {{ randomFlower() }}
+    </div>
+  </div>
+  <div class="content">
+    <h1>Món Quà Bất Ngờ Ngày 8/3</h1>
+    <button *ngIf="!isGiftVisible" class="reveal-button" (click)="revealGift()">
+      Nhấn Để Mở Món Quà Bất Ngờ
+    </button>
+    <div *ngIf="isGiftVisible" class="gift-container" [class.hidden]="!isGiftVisible">
+      <div class="gift-content">
+        <div #giftAnimation class="gift-animation"></div>
+        <p class="gift-message">{{ currentMessage }}</p>
+      </div>
+      <button class="try-again-button" (click)="tryAgain()">Thử Lại</button>
+    </div>
+  </div>
+</div>

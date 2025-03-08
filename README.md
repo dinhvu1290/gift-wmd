@@ -1,65 +1,27 @@
-# Women's Day Surprise Web App
+# WomensDaySurprise
 
-A beautiful and interactive web application to celebrate Women's Day with animated surprises and heartfelt messages.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
 
-## Features
+## Development server
 
-- 🎁 Interactive "Click to Reveal" button
-- 🌸 Beautiful animations including:
-  - Blooming flowers
-  - Animated hearts
-  - Sparkling fireworks
-  - Special messages
-- 🎨 Smooth transitions and effects
-- 📱 Fully responsive design
-- ✨ Modern UI with gradient background
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Technologies Used
+## Code scaffolding
 
-- HTML5
-- CSS3 (with animations)
-- JavaScript (ES6+)
-- GSAP (for animations)
-- Canvas Confetti (for firework effects)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Getting Started
+## Build
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/dinhvu1290/gift-wmd.git
-   cd gift-wmd
-   ```
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+## Running unit tests
 
-3. Start the development server:
-   ```bash
-   npm start
-   ```
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-4. Open your browser and navigate to:
-   ```
-   http://localhost:8080
-   ```
+## Running end-to-end tests
 
-## How to Use
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-1. Click the "Click to Reveal the Secret" button
-2. Watch as a random surprise animation appears
-3. Read the special message
-4. Click "Try Again" to see another surprise
+## Further help
 
-## Customization
-
-You can customize the animations, messages, and styles by modifying:
-
-- `src/js/main.js` - Add or modify surprise animations and messages
-- `src/css/style.css` - Customize colors, animations, and layout
-- `src/index.html` - Modify structure and content
-
-## License
-
-This project is licensed under the ISC License. 
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

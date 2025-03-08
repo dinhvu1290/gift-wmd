@@ -1,21 +1,37 @@
 <div class="container">
   <div class="background-animation">
     <!-- Falling Flowers -->
-    <div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" class="flower-fall-{{i}}">
-      {{ randomFlower() }}
+    <div *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" class="flower-fall flower-fall-{{i}}">
+      {{ flowers[i % flowers.length] }}
     </div>
   </div>
   <div class="content">
     <h1>Món Quà Bất Ngờ Ngày 8/3</h1>
-    <button *ngIf="!isGiftVisible" class="reveal-button" (click)="revealGift()">
-      Nhấn Để Mở Món Quà Bất Ngờ
-    </button>
-    <div *ngIf="isGiftVisible" class="gift-container" [class.hidden]="!isGiftVisible">
-      <div class="gift-content">
-        <div #giftAnimation class="gift-animation"></div>
+
+    <div class="main-display">
+      <!-- Initial Gift Box -->
+      <div *ngIf="!isGiftVisible" class="gift-box">
+        <div class="gift-lid">
+          <div class="gift-bow"></div>
+        </div>
+        <div class="gift-base"></div>
+      </div>
+
+      <!-- Content after clicking -->
+      <div *ngIf="isGiftVisible" class="gift-reveal-content">
+        <div class="greeting-text">
+          Chúc Mừng Ngày Quốc Tế Phụ Nữ
+        </div>
+        <!-- Large Heart -->
+        <div class="large-heart">
+          <div class="small-heart" *ngFor="let pos of heartPositions" [style.grid-area]="pos"></div>
+        </div>
         <p class="gift-message">{{ currentMessage }}</p>
       </div>
-      <button class="try-again-button" (click)="tryAgain()">Thử Lại</button>
+
+      <button *ngIf="!isGiftVisible" class="reveal-button" (click)="revealGift()">
+        Nhấn Để Mở Món Quà Bất Ngờ
+      </button>
     </div>
   </div>
 </div>

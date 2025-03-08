@@ -30,21 +30,13 @@
   animation: gradientBG 15s ease infinite;
   overflow: hidden;
   pointer-events: none;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 .content {
   text-align: center;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 3rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  padding: 2rem;
   position: relative;
   z-index: 15;
-  margin: 1rem;
 }
 
 h1 {
@@ -53,9 +45,10 @@ h1 {
   font-size: 2.5rem;
   word-wrap: break-word;
   line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
 }
 
-.reveal-button, .try-again-button {
+.reveal-button {
   padding: 1rem 2rem;
   font-size: 1.2rem;
   border: none;
@@ -79,240 +72,196 @@ h1 {
   }
 }
 
-.gift-container {
-  margin-top: 2rem;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-
-  &.hidden {
-    display: none;
-    opacity: 0;
-  }
-}
-
-.gift-content {
-  margin-bottom: 2rem;
-}
-
-.gift-animation {
-  min-height: 200px;
+.main-display {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
-}
-
-.gift-message {
-  font-size: 1.5rem;
-  color: #333;
-  margin: 1rem 0;
-}
-
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Flower Animation */
-.flower-garden {
+  justify-content: center;
+  min-height: 60vh;
   position: relative;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+  gap: 2rem;
 }
 
-.flower {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  transform-origin: center;
-}
-
-.flower-center {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #FFD700;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-}
-
-.petal {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  border-radius: 50% 50% 0 50%;
-  transform-origin: bottom right;
-  animation: petalWave 3s infinite ease-in-out;
-}
-
-.stem {
-  position: absolute;
-  width: 4px;
-  height: 60px;
-  background: #4CAF50;
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.leaf {
-  position: absolute;
-  width: 20px;
-  height: 10px;
-  background: #4CAF50;
-  border-radius: 10px 0;
-  bottom: -30px;
-  transform-origin: left center;
-}
-
-.leaf-left {
-  left: -18px;
-  transform: rotate(-30deg);
-}
-
-.leaf-right {
-  right: -18px;
-  transform: rotate(30deg) scaleX(-1);
-}
-
-/* Flower Color Variations */
-.flower-pink .petal { background: #FF69B4; }
-.flower-purple .petal { background: #9B59B6; }
-.flower-red .petal { background: #E74C3C; }
-.flower-yellow .petal { background: #F1C40F; }
-.flower-blue .petal { background: #3498DB; }
-
-@keyframes petalWave {
-  0%, 100% { transform: rotate(var(--rotate-angle)) scale(1); }
-  50% { transform: rotate(calc(var(--rotate-angle) + 10deg)) scale(1.1); }
-}
-
-@keyframes flowerSway {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(5deg); }
-}
-
-.flower-container {
-  animation: flowerSway 4s infinite ease-in-out;
-}
-
-/* Heart Animation */
-.heart {
+/* Gift Box */
+.gift-box {
   position: relative;
-  width: 100px;
-  height: 100px;
-  animation: heartBeat 1.5s infinite;
-}
+  width: 180px;
+  height: 180px;
+  margin: 2rem 0;
+  transform-origin: bottom center;
+  animation: giftBounce 1s infinite;
 
-@keyframes heartBeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-/* Enhanced Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-  }
-
-  .content {
-    padding: 2rem 1.5rem;
-    margin: 0.5rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .reveal-button, .try-again-button {
-    padding: 0.8rem 1.6rem;
-    font-size: 1.1rem;
+  .gift-base {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    max-width: 300px;
+    height: 80%;
+    background: #ff3333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
 
-  .gift-message {
-    font-size: 1.2rem;
-    padding: 0 0.5rem;
+  .gift-lid {
+    position: absolute;
+    top: 0;
+    width: 110%;
+    height: 25%;
+    left: -5%;
+    background: #ff4d4d;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 2;
   }
 
-  .gift-animation {
-    min-height: 150px;
-  }
-}
+  .gift-bow {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
 
-@media (max-width: 480px) {
-  .content {
-    padding: 1.5rem 1rem;
-  }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ffd700;
+      border-radius: 50% 50% 0 50%;
+    }
 
-  h1 {
-    font-size: 1.8rem;
-  }
+    &::before {
+      transform: rotate(-45deg);
+      left: -50%;
+    }
 
-  .reveal-button, .try-again-button {
-    padding: 0.7rem 1.4rem;
-    font-size: 1rem;
-  }
-
-  .gift-message {
-    font-size: 1.1rem;
-  }
-
-  @for $i from 1 through 20 {
-    .flower-fall-#{$i} {
-      font-size: #{random(15) + 15}px;
+    &::after {
+      transform: rotate(45deg);
+      right: -50%;
     }
   }
 }
 
-@supports (padding: max(0px)) {
-  .container {
-    padding-left: max(2rem, env(safe-area-inset-left));
-    padding-right: max(2rem, env(safe-area-inset-right));
-    padding-top: max(2rem, env(safe-area-inset-top));
-    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+/* Gift Reveal Content */
+.gift-reveal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.greeting-text {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* Large Heart */
+.large-heart {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 2px;
+  transform: scale(0);
+  animation: heartReveal 1s ease-out forwards;
+  margin: 1rem 0;
+}
+
+.small-heart {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #ff1a1a;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  animation: smallHeartAppear 0.5s ease-out forwards;
+
+  &::before {
+    content: '❤';
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .background-animation {
-    animation: none;
-  }
-  
-  .flower-fall {
-    animation-duration: 10s !important;
-  }
-  
-  .heart {
-    animation-duration: 2s !important;
-  }
+.gift-message {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  margin: 1rem 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 2s forwards;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 0 1rem;
 }
 
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+/* Falling Flowers */
+.flower-fall {
+  position: fixed;
+  font-size: 30px;
+  opacity: 0;
+  animation: flowerFall linear infinite;
+  z-index: 5;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
 }
 
-// Add falling flowers
 @for $i from 1 through 20 {
   .flower-fall-#{$i} {
-    position: fixed;
-    top: -50px;
-    left: random(100) * 1%;
-    animation: flowerFall #{random(10) + 5}s linear infinite;
+    left: #{random(100)}vw;
+    animation-duration: #{random(6) + 4}s;
     animation-delay: #{random(5)}s;
-    z-index: -1;
-    opacity: 0.6;
-    font-size: #{random(20) + 20}px;
     transform: rotate(#{random(360)}deg);
   }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heartReveal {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes smallHeartAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 @keyframes flowerFall {
@@ -320,14 +269,55 @@ html {
     transform: translateY(-50px) rotate(0deg);
     opacity: 0;
   }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.6;
-  }
+  10%, 90% { opacity: 1; }
   100% {
     transform: translateY(100vh) rotate(360deg);
     opacity: 0;
   }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container { padding: 1rem; }
+  h1 { font-size: 2rem; }
+  .reveal-button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  .large-heart {
+    width: 240px;
+    height: 240px;
+  }
+  .small-heart { font-size: 16px; }
+  .greeting-text { font-size: 1.8rem; }
+  .gift-message { font-size: 1.8rem; }
+  .gift-box {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.8rem; }
+  .reveal-button {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+  }
+  .large-heart {
+    width: 200px;
+    height: 200px;
+  }
+  .small-heart { font-size: 14px; }
+  .greeting-text { font-size: 1.5rem; }
+  .gift-message { font-size: 1.5rem; }
+  .gift-box {
+    width: 120px;
+    height: 120px;
+  }
+  .flower-fall {
+    font-size: 20px;
+  }
+}
+
